@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Instruções
+### Instruções iniciais
+  - Dar yarn install para instalar as dependências.
+  - Para ligar o backend, só escrever no terminal: yarn server.
+  - No backend, tem 2 itens principais: transações e categorias, utilize-as.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Ordem opcional das primeiras instruções:
 
-## Available Scripts
+1 - Definir as rotas principais da aplicação
 
-In the project directory, you can run:
+- Home
+- Transactions (listagem de transações) -> transactions
+- Create (página de criar a transação) -> transactions/create
+- Edit (página de editar a transação, igual a de criar) -> transactions/edit/id
 
-### `npm start`
+2 - Definir estilos globais e tema da aplicação (cores, espaçamentos caso deseja, etc, pode falar comigo)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3 - Colocar a aplicação em volta do contexto principal (TransactionContext) para ter acesso as funções na aplicação toda.
+- Para utilizar o contexto, deve-se utilizar o hook criado no arquivo de contexto: useTransaction.
+	- Exemplo: const { getTransactions, transactions, createTransaction } = useTransaction()
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4 - Criação dos components principais:
 
-### `npm test`
+- Componente de sidebar (vai estar presente em todas as telas)
+- Componente de Wrapper (o fundo roxo que vai estar presente em todas as telas)
+- Além disso, antes de começar a aplicação, recomendo analisar bem os principais itens que se repetem para focar na criação de componentes reutilizáveis, como por exemplo:
+	- Os itens de formulário vão ser utilizados em 2 páginas diferentes
+	- A tabela (já foi criada a pasta do componente) também vai ser utilizada em 2 páginas diferentes.
+	- Componente de Heading (presente em todas as páginas, posso te ajudar com isso).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Começando a aplicação
 
-### `npm run build`
+O início vou deixar para você decidir como quer fazer. Ou seja, caso queira começar pela estilização ou funcionalidades. EU recomendo a estilização primeiro, por que acredito que fica mais intuitivo e simples fazer as funcionalidades em um projeto já "feito".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O que você pode fazer é criar uma página, fazer as funcionalidades, depois ir pra outra.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1 - Context API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- As funções presentes no contexto da aplicação devem ter os mesmos nomes que coloquei lá e é nessas funções que vai ocorrer a manipulação de estado e chamadas na api.
+	- Por exemplo: na função getTransactions, você deve fazer uma chamada a api e adicionar no estado transactions.
+	- A função createTransaction deve fazer uma chamada a api utilizando o método POST e adicionando no estado principal a transação que é retornada pelada api.
 
-### `npm run eject`
+2 - Página Home
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Ná página Home, existe 2 components principais: 
+	- Os resumos (Entradas, saídas e total):
+		- A lógica dos resumos, é utilizando os métodos filter e reduce.
+		- Exemplo: para pegar as entradas, você deve filtrar os itens que tem o tipo "deposit", e depois transformar os valores dos itens filtrados em um número só utilizando o método reduce.   
+	- Tabela:
+		- Fazer um map nas transações e adicionar um TR para cada item na tabela. 
+			- Detalhe: na página Home, deve-se omitir as "Ações" (dica: mostrar o item apenas caso tenha uma condição: pode ser uma props) e só deve mostrar no máximo 5 itens com um link embaixo direcionando para ver o resto das transações (utilizar método slice).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3 - Página Transactions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Criação do componente de Link (o botão de criar transação), deve levar para a página de criar um novo item.
+- Logo embaixo, possui 2 componentes de filtro, mas esses 2 eu recomendo que você deixe para o final e consulte comigo quando for fazer porque tenho indicação de conteúdos bons para esse tipo de componente.
+- Tabela:
+	- Mesmo esquema da Home, mas deve mostrar todas as transações e deve mostrar a parte de "Ações", podendo assim editar e deletar os itens.
+	- Para editar e deletar, só pegar as funções do hook useTransaction, e colocar no onClick.
+		- Por exemplo: `const { deleteTransaction } = useTransaction()`   
+		- E assim deletar o item, e o item de editar deve-se estar em torno de um Link que leva para a página de editar com o id da transação.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4 - Página de Create e Edit
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Nessas duas páginas, a idéia é a mesma que a gente já conversou, vou deixar como desafio você tentar fazer sózinho, mas a idéia é a mesma:
+	- Criar o estado do formulário
+	- Criar uma função responsável pelo submit
+	- Fazer as validações
+	- Fazer a ação necessária (createTransaction, updateTransaction) caso tenha passado na validação redirecionando-o para a página de transações e caso não mande um toast pro usuário.
