@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Sidebar = styled.aside`
     width: 300px;
-    max-width: 30vh;
-    background-color: #fff001;
+    max-width: 30vw;
+    background-color: ${(props) => props.theme.colors.primaryColor};
     margin: 20px 10px;
 `;
 
