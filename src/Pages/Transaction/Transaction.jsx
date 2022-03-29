@@ -1,7 +1,14 @@
 import React from "react";
+import SideBar from "../../components/SideBar";
+import { Container } from "./styles";
 
 const Transaction = () => {
-    return <div>Transaction</div>;
+    return (
+        <Container>
+            <SideBar />
+            Transaction
+        </Container>
+    );
 };
 
 export default Transaction;
