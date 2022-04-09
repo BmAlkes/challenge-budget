@@ -7,16 +7,19 @@ export const TransactionProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([]); // Estado principal da aplicação
 
     useEffect(() => {
-        api("/transactions")
-            .then((response) => setTransactions(response.data))
-            .catch((error) => {
-                console.lo(error);
-            });
+        getTransactions();
     }, []);
     // create transaction
     // update deletransaction
     // delete transaction
     // get transactions
+    const getTransactions = () => {
+        api("/transactions")
+            .then((response) => setTransactions(response.data))
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     return (
         <TransactionContext.Provider value={{ transactions }}>

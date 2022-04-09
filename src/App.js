@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditTransaction from "./Pages/EditTransaction/EditTransaction";
 import Home from "./Pages";
 import Transaction from "./Pages/Transaction/Transaction";
+import CreateTransaction from "./Pages/CreateTransaction";
 
 const App = () => {
     return (
@@ -10,6 +11,10 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/transaction" element={<Transaction />} />
+                <Route
+                    path="/createTransaction"
+                    element={<CreateTransaction />}
+                />
                 <Route
                     path="transaction/edit/:id"
                     element={<EditTransaction />}

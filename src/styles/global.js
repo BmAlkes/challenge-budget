@@ -15,6 +15,8 @@ a{
     display: inline-block;
     text-decoration: none;
     color: #414141;
+    margin: 0;
+    padding: 0;
 }
 a:visited{
     color : #414141;
