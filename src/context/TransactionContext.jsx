@@ -10,8 +10,15 @@ export const TransactionProvider = ({ children }) => {
         getTransactions();
     }, []);
     // create transaction
-    // update deletransaction
-    // delete transaction
+    const createTransaction = async (transaction) => {
+        const response = await api.post(`/transactions`, {
+            ...transaction,
+        });
+        console.log(response.data.transaction);
+
+        setTransactions([transaction, response.data.transaction]);
+    };
+
     // get transactions
     const getTransactions = () => {
         api("/transactions")
@@ -21,8 +28,34 @@ export const TransactionProvider = ({ children }) => {
             });
     };
 
+    // update deletransaction
+    const editTransaction = async (id, updateTransaction) => {
+        await api.patch(`/transactions/${id}`, updateTransaction);
+        setTransactions(
+            transactions.map((transaction) =>
+                transaction._id === transaction.id
+                    ? { ...transaction, ...updateTransaction }
+                    : transaction
+            )
+        );
+    };
+    // delete transaction
+    const deleteTransaction = async (id) => {
+        await api.delete(`/transactions/${id}`);
+        setTransactions(transactions.filter((id) => transactions.id !== id));
+        getTransactions();
+    };
+
     return (
-        <TransactionContext.Provider value={{ transactions }}>
+        <TransactionContext.Provider
+            value={{
+                transactions,
+                deleteTransaction,
+                editTransaction,
+                getTransactions,
+                createTransaction,
+            }}
+        >
             {children}
         </TransactionContext.Provider>
     );

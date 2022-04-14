@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "./styles";
 import SideBar from "../components/Sidebar/index";
 import Widgets from "../components/widgets";
 import Extract from "../components/Extract";
+import { useTransaction } from "../context/TransactionContext";
 
 const Home = () => {
+    const { getTransactions } = useTransaction();
+
+    useEffect(() => {
+        getTransactions();
+    }, []);
+
     return (
         <Container>
             <SideBar />
