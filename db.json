@@ -1,24 +1,11 @@
 {
   "transactions": [
     {
-      "id": 3,
-      "category": "comida",
-      "amount": 140,
-      "title": "Pizza"
-    },
-    {
-      "title": "Livro JS Master",
-      "amount": "120",
-      "category": "Study",
-      "type": "out",
-      "id": 6
-    },
-    {
-      "title": "Gasolina",
-      "amount": "234",
-      "category": "Car",
-      "type": "out",
-      "id": 7
+      "title": "pizza",
+      "amount": "1223",
+      "category": "",
+      "type": "",
+      "id": 1
     }
   ],
   "categories": [

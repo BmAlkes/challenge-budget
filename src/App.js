@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EditTransaction from "./Pages/EditTransaction/EditTransaction";
+import EditTransaction from "./Pages/EditTransaction";
 import Home from "./Pages";
-import Transaction from "./Pages/Transaction/Transaction";
+import Transaction from "./Pages/Transaction/";
 import CreateTransaction from "./Pages/CreateTransaction";
 
 const App = () => {

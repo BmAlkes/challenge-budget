@@ -14,9 +14,8 @@ export const TransactionProvider = ({ children }) => {
         const response = await api.post(`/transactions`, {
             ...transaction,
         });
-        console.log(response.data.transaction);
 
-        setTransactions([transaction, response.data.transaction]);
+        setTransactions([{ ...transaction }, response.data]);
     };
 
     // get transactions

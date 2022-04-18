@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const TableTransaction = ({ transactions, deleteTransaction }) => {
     const deleteItem = async (id) => {
-        console.log(id);
         deleteTransaction(id);
     };
 
