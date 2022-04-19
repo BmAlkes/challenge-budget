@@ -11,16 +11,13 @@ export const TransactionProvider = ({ children }) => {
     }, []);
     // create transaction
     const createTransaction = async (transaction) => {
-        const response = await api.post(`/transactions`, {
-            ...transaction,
-        });
-
-        setTransactions([{ ...transaction }, response.data]);
+        const response = await api.post(`/transactions`, transaction);
+        setTransactions([...transactions, response.data]);
     };
 
     // get transactions
-    const getTransactions = () => {
-        api("/transactions")
+    const getTransactions = async () => {
+        await api("/transactions")
             .then((response) => setTransactions(response.data))
             .catch((error) => {
                 console.log(error);
@@ -41,8 +38,9 @@ export const TransactionProvider = ({ children }) => {
     // delete transaction
     const deleteTransaction = async (id) => {
         await api.delete(`/transactions/${id}`);
-        setTransactions(transactions.filter((id) => transactions.id !== id));
-        getTransactions();
+        setTransactions(
+            transactions.filter((transaction) => transaction.id !== id)
+        );
     };
 
     return (

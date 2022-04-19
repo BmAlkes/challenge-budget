@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditTransaction from "./Pages/EditTransaction";
-import Home from "./Pages";
+import Home from "./Pages/Home";
 import Transaction from "./Pages/Transaction/";
 import CreateTransaction from "./Pages/CreateTransaction";
 

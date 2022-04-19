@@ -9,6 +9,9 @@ const Container = styled.div`
     opacity: 0;
     animation: Move 3s forwards;
     margin-left: -80px;
+    @media (max-width: 700px) {
+        min-height: 150px;
+    }
     .top {
         height: 100px;
         display: flex;
@@ -35,8 +38,15 @@ const Container = styled.div`
 
     .menu ul {
         list-style-type: none;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media (max-width: 700px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
 
     .menu ul li {

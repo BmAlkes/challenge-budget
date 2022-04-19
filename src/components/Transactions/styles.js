@@ -8,7 +8,10 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: inherit;
-    width: 500px;
+    @media (max-width: 700px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
     .list {
         display: flex;
@@ -18,6 +21,9 @@ const Container = styled.div`
         letter-spacing: 1px;
         color: ${(props) => props.theme.colors.textColor};
         margin-bottom: 10px;
+        @media (max-width: 700px) {
+            flex: 1;
+        }
         h3 {
             flex: 1;
             text-align: center;

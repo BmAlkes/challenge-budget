@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
     display: flex;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
     .homeContainer {
         flex: 5;
         background-color: ${(props) => props.theme.colors.primaryColor};
@@ -21,7 +24,11 @@ const Container = styled.div`
         margin: 20px;
         display: grid;
         gap: 20px;
+        margin: 0 auto;
         grid-template-columns: 1fr 1fr;
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+        }
         label {
             display: block;
             margin-bottom: 10px;
@@ -31,6 +38,7 @@ const Container = styled.div`
             border: none;
             padding: 10px;
             border-radius: 5px;
+            width: 100%;
         }
         select {
             width: 100%;
@@ -53,6 +61,7 @@ const Container = styled.div`
         }
         &.Confirm {
             background-color: ${(props) => props.theme.colors.positive};
+            margin-bottom: 20px;
         }
     }
 `;

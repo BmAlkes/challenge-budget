@@ -4,7 +4,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
+    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
 
     .table {

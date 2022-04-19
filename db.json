@@ -1,11 +1,32 @@
 {
   "transactions": [
     {
-      "title": "pizza",
-      "amount": "1223",
-      "category": "",
-      "type": "",
+      "title": "Paycheck",
+      "amount": "8000",
+      "category": "Paycheck",
+      "type": "in",
       "id": 1
+    },
+    {
+      "title": "cartao de credito ",
+      "amount": "1200",
+      "category": "Paycheck",
+      "type": "out",
+      "id": 3
+    },
+    {
+      "title": "pizza",
+      "amount": "135.90",
+      "category": "Food",
+      "type": "out",
+      "id": 4
+    },
+    {
+      "title": "carro",
+      "amount": "1259.85",
+      "category": "Car",
+      "type": "out",
+      "id": 6
     }
   ],
   "categories": [

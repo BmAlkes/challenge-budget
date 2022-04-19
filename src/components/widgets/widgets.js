@@ -9,6 +9,10 @@ const Container = styled.div`
     box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     border-radius: 10px;
     height: 100px;
+    @media (max-width: 700px) {
+        width: 250px;
+        margin: 0 auto;
+    }
     .left {
         display: flex;
         flex-direction: column;

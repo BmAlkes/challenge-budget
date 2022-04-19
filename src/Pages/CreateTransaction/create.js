@@ -6,6 +6,9 @@ const Container = styled.div`
     max-width: 100%;
     width: 100vw;
     display: flex;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 
     .homeContainer {
         flex: 5;
@@ -27,6 +30,9 @@ const Container = styled.div`
             display: grid;
             gap: 20px;
             grid-template-columns: 1fr 1fr;
+            @media (max-width: 700px) {
+                grid-template-columns: 1fr;
+            }
             label {
                 display: block;
                 margin-bottom: 10px;
@@ -36,6 +42,9 @@ const Container = styled.div`
                 border: none;
                 padding: 10px;
                 border-radius: 5px;
+                @media (max-width: 700px) {
+                    width: 100%;
+                }
             }
             select {
                 width: 100%;
@@ -58,6 +67,9 @@ const Container = styled.div`
             }
             &.Confirm {
                 background-color: ${(props) => props.theme.colors.positive};
+            }
+            @media (max-width: 700px) {
+                display: block;
             }
         }
     }

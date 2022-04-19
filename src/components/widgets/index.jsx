@@ -3,7 +3,7 @@ import { Container } from "./widgets";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
-const Widgets = ({ type }) => {
+const Widgets = ({ type, statusCount }) => {
     let data;
 
     switch (type) {
@@ -17,6 +17,7 @@ const Widgets = ({ type }) => {
                         style={{ color: "green" }}
                     />
                 ),
+                total: `${statusCount.deposit}`,
             };
             break;
         case "Withdraw":
@@ -29,6 +30,7 @@ const Widgets = ({ type }) => {
                         style={{ color: "crimson" }}
                     />
                 ),
+                total: `${statusCount.witdraw}`,
             };
             break;
         case "balance":
@@ -41,6 +43,7 @@ const Widgets = ({ type }) => {
                         style={{ color: "#4e29ff" }}
                     />
                 ),
+                total: `${statusCount.total}`,
             };
         default:
             break;
@@ -49,7 +52,7 @@ const Widgets = ({ type }) => {
         <Container>
             <div className="left">
                 <span className="types">{data.types}</span>
-                <span className={`value ${data.type}`}>$ 300</span>
+                <span className={`value ${data.type}`}>${data.total}</span>
             </div>
             <div className="right">
                 <div className="simbol positive">{data.icon}</div>

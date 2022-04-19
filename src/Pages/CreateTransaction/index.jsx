@@ -12,9 +12,9 @@ const CreateTransaction = () => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        await createTransaction({ title, amount, category, type });
+        createTransaction({ title, amount, category, type });
         navigate("/");
     };
 
@@ -54,9 +54,7 @@ const CreateTransaction = () => {
                                     setCategory(event.target.value)
                                 }
                             >
-                                <option value="" disabled>
-                                    Choose one
-                                </option>
+                                <option value="">Choose one</option>
                                 <option value="Shopping">Shopping</option>
                                 <option value="Food">Food</option>
                                 <option value="Paycheck">Paycheck</option>
@@ -72,8 +70,9 @@ const CreateTransaction = () => {
                                     setType(event.target.value)
                                 }
                             >
-                                <option value="In">Receive</option>
+                                <option value="">Choose one</option>
                                 <option value="out">Paid</option>
+                                <option value="in">Receive</option>
                             </select>
                         </div>
                         <Link to="/">

@@ -10,6 +10,10 @@ export default createGlobalStyle`
     padding: 0;
     font-family: 'Poppins', sans-serif;
 };
+body{
+    max-width:1200px;
+    margin: 0 auto
+}
 
 a{
     display: inline-block;

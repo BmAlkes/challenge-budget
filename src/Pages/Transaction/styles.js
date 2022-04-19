@@ -6,12 +6,16 @@ const Container = styled.div`
     max-width: 100%;
     width: 100vw;
     display: flex;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 
     .homeContainer {
         flex: 5;
         background-color: ${(props) => props.theme.colors.primaryColor};
         margin: 20px;
         border-radius: 10px;
+        height: 100%;
     }
 
     .header {
