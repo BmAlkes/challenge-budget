@@ -3,8 +3,8 @@ import { Container } from "./styles";
 import TableTransaction from "../../components/TableTransaction/index";
 import { useTransaction } from "../../context/TransactionContext";
 
-const Transactions = () => {
-    const { transactions, deleteTransaction } = useTransaction();
+const Transactions = ({ transactions }) => {
+    const { deleteTransaction } = useTransaction();
     return (
         <Container>
             <div className="list">
@@ -15,8 +15,8 @@ const Transactions = () => {
                 <h3>Actions</h3>
             </div>
             <TableTransaction
-                transactions={transactions}
                 deleteTransaction={deleteTransaction}
+                transactions={transactions}
             />
         </Container>
     );

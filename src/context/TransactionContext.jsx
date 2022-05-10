@@ -42,6 +42,17 @@ export const TransactionProvider = ({ children }) => {
             transactions.filter((transaction) => transaction.id !== id)
         );
     };
+    const filteredTransactions = async (filtered) => {
+        await api.get(`/transactions`);
+        const filter = transactions.filter(
+            (transaction) => transaction.category === filtered
+        );
+        if (filter.length === 0) {
+            getTransactions();
+        } else {
+            setTransactions(filter);
+        }
+    };
 
     return (
         <TransactionContext.Provider
@@ -51,6 +62,7 @@ export const TransactionProvider = ({ children }) => {
                 editTransaction,
                 getTransactions,
                 createTransaction,
+                filteredTransactions,
             }}
         >
             {children}
