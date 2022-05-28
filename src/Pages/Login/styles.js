@@ -8,16 +8,19 @@ const Container = styled.div`
     min-height: 100vh;
     overflow: hidden;
 
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
         justify-content: center;
         align-items: center;
         background-image: linear-gradient(-45deg, #02bae8 0%, #025fe8 100%);
 
+        :before {
+            width: 60vw;
+        }
         .panel {
             top: 0px;
             left: 60px;
         }
-
+        h2,
         p,
         .img {
             display: none;
@@ -72,14 +75,20 @@ const Container = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        flex: 5;
     }
     .sigin-signup {
         margin-right: 10%;
     }
     @media (max-width: 700px) {
         .sigin-signup {
+            width: 300px;
             margin: 0 auto;
+        }
+        .form {
+            max-width: 300px;
+        }
+        .input-field {
+            width: 250px;
         }
     }
 

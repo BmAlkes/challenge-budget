@@ -3,6 +3,7 @@ import SideBar from "../../components/Sidebar";
 import { Container } from "./create";
 import { Link, useNavigate } from "react-router-dom";
 import { useTransaction } from "../../context/TransactionContext";
+import { useAuth } from "../../context/AuthContext";
 
 const CreateTransaction = () => {
     const navigate = useNavigate();
@@ -12,9 +13,12 @@ const CreateTransaction = () => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
 
+    const { user } = useAuth();
+    const { _id } = user;
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        createTransaction({ title, amount, category, type });
+        createTransaction({ title, amount, category, type, created_by: _id });
         navigate("/");
     };
 
