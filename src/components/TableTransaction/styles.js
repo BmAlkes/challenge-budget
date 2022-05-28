@@ -4,11 +4,13 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
+    width: 90%;
     margin: 0 auto;
 
     .table {
         display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 20px;
         background-color: #fff;
         padding: 10px;

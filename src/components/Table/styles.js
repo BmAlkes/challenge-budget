@@ -10,6 +10,7 @@ const Container = styled.div`
 
     .table {
         display: flex;
+        justify-content: center;
         margin-bottom: 20px;
         background-color: #fff;
         padding: 10px;

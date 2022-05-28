@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 const SideBar = () => {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
 
     const handleLogout = () => {
         logout();
@@ -21,7 +21,7 @@ const SideBar = () => {
                     src="https://images.unsplash.com/photo-1640951613773-54706e06851d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
                     alt=""
                 />
-                <span> Bmalkes</span>
+                <span>{user.name}</span>
             </div>
             <div className="menu">
                 <ul>
