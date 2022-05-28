@@ -5,8 +5,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const SideBar = () => {
+    const { logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+    };
+
     return (
         <Container>
             <div className="top">
@@ -31,7 +38,7 @@ const SideBar = () => {
                         </li>
                     </Link>
                     <Link to="/">
-                        <li>
+                        <li onClick={() => handleLogout()}>
                             <LogoutIcon />
                             <span>Logout</span>
                         </li>

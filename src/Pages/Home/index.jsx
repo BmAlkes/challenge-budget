@@ -4,10 +4,11 @@ import SideBar from "../../components/Sidebar/index";
 import Widgets from "../../components/widgets";
 import Extract from "../../components/Extract";
 import { useTransaction } from "../../context/TransactionContext";
+import { useAuth } from "../../context/AuthContext";
 
 const Home = () => {
+    const { user } = useAuth();
     const { getTransactions, transactions } = useTransaction();
-    console.log(transactions);
     const [statusCount, setStatusCount] = useState({
         total: 0,
         witdraw: 0,
@@ -33,7 +34,6 @@ const Home = () => {
         .reduce((acc, transaction) => {
             return acc + Number(transaction.amount);
         }, 0);
-    console.log(withdraw);
 
     const balance = total - withdraw;
 
@@ -53,7 +53,7 @@ const Home = () => {
         <Container>
             <SideBar />
             <div className="homeContainer">
-                <h1>Welcome Back, Bmalkes</h1>
+                <h1>Welcome Back, {user.name}</h1>
                 <div className="widgets">
                     <Widgets type="Entrace" statusCount={statusCount} />
                     <Widgets type="Withdraw" statusCount={statusCount} />
