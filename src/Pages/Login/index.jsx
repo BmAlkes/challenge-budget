@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { Container } from "./styles";
+import PersonIcon from "@mui/icons-material/Person";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { ReactComponent as ReactFinance } from "../../images/finace.svg";
 
 const LoginPage = () => {
     const { authenticated, login } = useAuth();
+    const [user, setUser] = useState(null);
 
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = (e) => {
@@ -18,56 +22,77 @@ const LoginPage = () => {
         login(email, password);
     };
 
+    const facebook = () => {
+        window.open("http://localhost:5000/auth/facebook", "_self");
+    };
+
     return (
         <Container>
-            <div className="body">
-                <div className="welcome">
-                    <h2>Smart Wallet</h2>
-                    <h3> Welcome To...</h3>
-                    <p>
-                        Welcome to Smart Wallet, the easy way to controll your
-                        finances
-                    </p>
-                </div>
-                <div className="login">
-                    <h2>Login </h2>
-                    <p>Welcome! login to acess your smart accouting</p>
-                    <form className="form" onSubmit={handleSubmit}>
-                        <div className="field">
-                            <label htmlFor="email">Email</label>
+            <div className="panel">
+                <h2>
+                    Welcome <br />
+                    to Easy Wallet
+                </h2>
+                <p>
+                    Welcome to Smart Wallet, the easy way to controll your
+                    finances
+                </p>
+                <ReactFinance className="img" />
+            </div>
+            <div className="forms-container " onSubmit={handleSubmit}>
+                <div className="sigin-signup">
+                    <form className="signin-in-form">
+                        <h2 className="title">Sign In</h2>
+                        <div className="input-field">
+                            <PersonIcon className="icons" />
                             <input
                                 type="text"
-                                name="email"
+                                placeholder="Email"
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-                        <div className="field">
-                            <label htmlFor="password">Password</label>
+                        <div className="input-field">
+                            <LockOutlinedIcon className="icons" />
                             <input
                                 type="password"
-                                name="password"
-                                id="password"
+                                placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <button>Login</button>
-                    </form>
-                    <div className="or">
-                        <p className="span">Or</p>
-                    </div>
-                    <div className="socialMedia">
-                        <FacebookIcon className="facebook" />
-                        <GoogleIcon className="google" />
-                    </div>
-                    <div className="signin">
-                        <p>
-                            New User? <Link to="/login/register">Sign up</Link>
+                        <input
+                            type="submit"
+                            className="btn-solid"
+                            value="Login"
+                        />
+                        <Link to="/register">
+                            <input
+                                type="submit"
+                                className="btn-solid"
+                                value="Sign Up"
+                            />
+                        </Link>
+                        <p className="social-text">
+                            Or Sign in with social platforms
                         </p>
-                        <p>forgot password ?</p>
-                    </div>
+                        <div className="social-media">
+                            <a
+                                href="#"
+                                className="social-icon"
+                                onClick={facebook}
+                            >
+                                <FacebookOutlinedIcon />
+                            </a>
+                            <a href="#" className="social-icon">
+                                <GoogleIcon />
+                            </a>
+                            <a href="#" className="social-icon">
+                                <LinkedInIcon />
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </Container>

@@ -40,10 +40,15 @@ const Container = styled.div`
     .panel {
         position: absolute;
         padding: 10px;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
         h2 {
             margin-top: 30px;
             color: #fff;
-            font-size: 2.4rem;
+            font-size: 3.2rem;
             font-weight: bold;
             text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
         }
@@ -51,11 +56,12 @@ const Container = styled.div`
             max-width: 300px;
             padding: 10px;
             color: #fff;
+            font-size: 1.3rem;
         }
     }
     .img {
         max-width: 100%;
-        width: 250px;
+        width: 400px;
         margin-left: 70px;
     }
 
@@ -78,6 +84,7 @@ const Container = styled.div`
     }
 
     form {
+        width: 400px;
         display: flex;
         flex-direction: column;
         justify-content: center;

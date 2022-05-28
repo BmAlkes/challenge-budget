@@ -3,9 +3,9 @@ import EditTransaction from "./Pages/EditTransaction";
 import Home from "./Pages/Home";
 import Transaction from "./Pages/Transaction/";
 import CreateTransaction from "./Pages/CreateTransaction";
-import LoginPage from "./Pages/Register";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import LoginPage from "./Pages/Login";
 import RegisterPage from "./Pages/Register";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
 const App = () => {
     const Private = ({ children }) => {
@@ -24,12 +24,8 @@ const App = () => {
         <BrowserRouter>
             <AuthProvider>
                 <Routes>
-                    <Route
-                        exact
-                        path="/login/register"
-                        element={<LoginPage />}
-                    />
-                    {/* <Route path="/login/register" element={<RegisterPage />} /> */}
+                    <Route exact path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
                     <Route
                         path="/"
                         element={
