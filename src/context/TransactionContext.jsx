@@ -5,7 +5,6 @@ const TransactionContext = createContext({});
 
 export const TransactionProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([]); // Estado principal da aplicação
-
     useEffect(() => {
         getTransactions();
     }, []);

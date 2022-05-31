@@ -8,6 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const Home = () => {
     const { user } = useAuth();
+    const { _id } = user;
     const { getTransactions, transactions } = useTransaction();
     const [statusCount, setStatusCount] = useState({
         total: 0,
@@ -38,7 +39,7 @@ const Home = () => {
     const balance = total - withdraw;
 
     useEffect(() => {
-        getTransactions();
+        getTransactions(_id);
     }, []);
 
     useEffect(() => {
