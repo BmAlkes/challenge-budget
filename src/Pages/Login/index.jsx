@@ -10,38 +10,34 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { ReactComponent as ReactFinance } from "../../images/finace.svg";
 
 const LoginPage = () => {
-    const { authenticated, login } = useAuth();
-    const [user, setUser] = useState(null);
+    const { login } = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log("submit", { email, password });
         login(email, password);
-    };
-
-    const facebook = () => {
-        window.open("http://localhost:5000/auth/facebook", "_self");
     };
 
     return (
         <Container>
             <div className="panel">
-                <h2>
-                    Welcome <br />
-                    to Easy Wallet
-                </h2>
-                <p>
-                    Welcome to Smart Wallet, the easy way to controll your
-                    finances
-                </p>
-                <ReactFinance className="img" />
+                <div className="blue"></div>
+                <div className="panel-container">
+                    <h2>
+                        Welcome <br />
+                        to Easy Wallet
+                    </h2>
+                    <p>
+                        Welcome to Smart Wallet, the easy way to controll your
+                        finances
+                    </p>
+                    <ReactFinance className="img" />
+                </div>
             </div>
-            <div className="forms-container " onSubmit={handleSubmit}>
+            <div className="forms-container ">
                 <div className="sigin-signup">
-                    <form className="signin-in-form">
+                    <form className="signin-in-form" onSubmit={handleSubmit}>
                         <h2 className="title">Sign In</h2>
                         <div className="input-field">
                             <PersonIcon className="icons" />
@@ -78,11 +74,7 @@ const LoginPage = () => {
                             Or Sign in with social platforms
                         </p>
                         <div className="social-media">
-                            <a
-                                href="#"
-                                className="social-icon"
-                                onClick={facebook}
-                            >
+                            <a href="#" className="social-icon">
                                 <FacebookOutlinedIcon />
                             </a>
                             <a href="#" className="social-icon">

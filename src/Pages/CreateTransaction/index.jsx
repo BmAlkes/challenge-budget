@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SideBar from "../../components/Sidebar";
-import { Container } from "./create";
+import { Container } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import { useTransaction } from "../../context/TransactionContext";
 import { useAuth } from "../../context/AuthContext";

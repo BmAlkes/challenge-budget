@@ -1,104 +1,84 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-    max-width: 980px;
-    position: flex;
+    max-width: 1200px;
     width: 100vw;
     background-color: #fff;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-
     @media (max-width: 700px) {
-        justify-content: center;
-        align-items: center;
-        background-image: linear-gradient(-45deg, #02bae8 0%, #025fe8 100%);
-
-        :before {
-            width: 60vw;
-        }
-        .panel {
-            top: 0px;
-            left: 60px;
-        }
-        h2,
-        p,
-        .img {
-            display: none;
+        flex-direction: column;
+        margin-bottom: 20px;
+        .blue {
+            left: 0;
         }
     }
-    :before {
-        content: " ";
+
+    .panel {
+        position: relative;
+        flex: 1;
+        min-height: 100vh;
+        display: flex;
+    }
+    .blue {
         position: absolute;
         height: 100%;
         width: 100vw;
-        top: 0px;
-        right: 48%;
+        right: -30%;
         background-image: linear-gradient(-45deg, #02bae8 0%, #025fe8 100%);
         transform: translateX(-75%);
         transform: translateY(-10px);
         border-radius: 50%;
-        z-index: 0;
+        opacity: 0.8;
     }
+    .panel-container {
+        z-index: 1;
+        margin-top: 30px;
 
-    .panel {
-        position: absolute;
-        padding: 10px;
-        width: 500px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         h2 {
-            margin-top: 30px;
+            font-size: 4rem;
             color: #fff;
-            font-size: 3.4rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            margin: 30px;
+            letter-spacing: 0.3px;
+            text-shadow: 3px 3px 3px rgb(0, 0, 0);
         }
         p {
-            padding: 10px;
+            font-size: 1.5rem;
+            letter-spacing: 1.4px;
+            font-weight: 500;
+            padding: 20px;
+            margin: 20px;
             color: #fff;
-            font-size: 1.2rem;
+            margin-bottom: 100px;
+        }
+        .img {
+            max-width: 100%;
+            margin-left: 30px;
+        }
+        @media (max-width: 700px) {
+            h2 {
+                text-align: center;
+                font-size: 2.7rem;
+            }
+            p {
+                font-size: 1.3rem;
+                margin: 0;
+                padding: 10px;
+                text-shadow: 3px 3px 3px rgb(0, 0, 0);
+                text-align: center;
+            }
         }
     }
-    .img {
-        max-width: 100%;
-        width: 400px;
-        margin: 0 auto;
-    }
-
     .forms-container {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
+        flex: 1;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
-    }
-    .sigin-signup {
-        margin-right: 10%;
-    }
-    @media (max-width: 700px) {
-        .sigin-signup {
-            width: 300px;
-            margin: 0 auto;
-        }
-        .form {
-            max-width: 300px;
-        }
-        .input-field {
-            width: 250px;
-        }
+        justify-content: flex-end;
     }
 
-    form {
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
     .title {
         font-size: 2.2rem;
         color: #444;

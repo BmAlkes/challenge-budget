@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../../components/Sidebar";
-import { Container } from "./Edit";
+import { Container } from "./style";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useTransaction } from "../../context/TransactionContext";
