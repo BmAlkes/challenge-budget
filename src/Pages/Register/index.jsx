@@ -16,7 +16,6 @@ const RegisterPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("submit", { email, password, name });
         createuser(name, email, password);
     };
 

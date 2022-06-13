@@ -34,21 +34,19 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("token", JSON.stringify(token));
 
         api.defaults.headers.Authorization = `Bearer ${token}`;
-        navigate("/");
         setUser(loggedUser);
+        navigate("/");
     };
     const logout = () => {
         localStorage.removeItem("user");
         api.defaults.headers.Authorization = null;
         setUser(null);
-        navigate("/login/register");
+        navigate("/login");
     };
 
     const createuser = async (name, email, password) => {
         const response = await createUser(name, email, password);
-        console.log(response);
-
-        navigate("/login");
+        navigate("/");
     };
 
     return (
