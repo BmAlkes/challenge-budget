@@ -14,9 +14,20 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const validade = (email, password) => {
+        if (
+            email.length >= 10 &&
+            email.includes("@") &&
+            password.length >= 10
+        ) {
+            login(email, password);
+        } else {
+            console.log("Invalid password and email");
+        }
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
-        login(email, password);
+        validade(email, password);
     };
 
     return (
