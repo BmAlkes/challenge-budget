@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "./styles";
-import SideBar from "../../components/Sidebar/index";
+import SideBar from "../../components/SideBar";
 import Widgets from "../../components/widgets";
 import Extract from "../../components/Extract";
 import { useTransaction } from "../../context/TransactionContext";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SideBar from "../../components/Sidebar";
+import SideBar from "../../components/SideBar";
 import { Container } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import { useTransaction } from "../../context/TransactionContext";
