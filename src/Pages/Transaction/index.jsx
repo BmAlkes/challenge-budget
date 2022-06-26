@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SideBar from "../../components/Sidebar";
+import SideBar from "../../components/SideBar";
 import { Container } from "./styles";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";

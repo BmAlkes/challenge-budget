@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "../../components/Sidebar";
+import SideBar from "../../components/SideBar";
 import { Container } from "./style";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
