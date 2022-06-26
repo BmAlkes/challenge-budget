@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 const Container = styled.div`
     max-width: 980px;
-    position: flex;
-    width: 100vw;
+    width: 100%;
+    margin: 0 auto;
     background-color: #fff;
     min-height: 100vh;
     overflow: hidden;
 
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
         justify-content: center;
         align-items: center;
         background-image: linear-gradient(-45deg, #02bae8 0%, #025fe8 100%);
@@ -17,7 +17,7 @@ const Container = styled.div`
             top: 0px;
             left: 60px;
         }
-
+        h2,
         p,
         .img {
             display: none;
@@ -139,7 +139,8 @@ const Container = styled.div`
         color: #fff;
         text-transform: uppercase;
         font-weight: 600;
-        margin: 10px 0;
+        margin: 10px auto;
+        text-align: center;
         transition: all 0.5s;
         cursor: pointer;
     }

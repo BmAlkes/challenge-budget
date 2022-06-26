@@ -2,20 +2,14 @@ import styled from "styled-components";
 
 const Container = styled.div`
     max-width: 1200px;
-    width: 100vw;
+    width: 100%;
+    margin: 0 auto;
     background-color: #fff;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    @media (max-width: 700px) {
-        flex-direction: column;
-        margin-bottom: 20px;
-        .blue {
-            left: 0;
-        }
-    }
 
     .panel {
         position: relative;
@@ -33,6 +27,18 @@ const Container = styled.div`
         transform: translateY(-10px);
         border-radius: 50%;
         opacity: 0.8;
+    }
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+        flex-direction: column-reverse;
+        .blue {
+            left: 0;
+            height: 90%;
+            width: 100%;
+            margin-bottom: 0px;
+        }
     }
     .panel-container {
         z-index: 1;
@@ -77,6 +83,12 @@ const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: flex-end;
+    }
+
+    @media (max-width: 700px) {
+        .forms-container {
+            margin-bottom: 2rem;
+        }
     }
 
     .title {

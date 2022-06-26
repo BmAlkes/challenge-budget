@@ -74,6 +74,9 @@ const RegisterPage = () => {
                             className="btn-solid"
                             value="Login"
                         />
+                        <Link to="/">
+                            <input className="btn-solid" value="Home" />
+                        </Link>
                     </form>
                 </div>
             </div>
