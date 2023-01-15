@@ -8,58 +8,20 @@ import RegisterPage from "./Pages/Register";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
 const App = () => {
-    const Private = ({ children }) => {
-        const { authenticated, loading } = useAuth();
-        if (loading) {
-            return <div className="loading">Loading...</div>;
-        }
-        if (!authenticated) {
-            return <Navigate to="/login" />;
-        } else {
-            return children;
-        }
-    };
-
     return (
         <BrowserRouter>
-            <AuthProvider>
-                <Routes>
-                    <Route exact path="/login" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route
-                        path="/"
-                        element={
-                            <Private>
-                                <Home />
-                            </Private>
-                        }
-                    />
-                    <Route
-                        path="/transaction"
-                        element={
-                            <Private>
-                                <Transaction />
-                            </Private>
-                        }
-                    />
-                    <Route
-                        path="/createTransaction"
-                        element={
-                            <Private>
-                                <CreateTransaction />
-                            </Private>
-                        }
-                    />
-                    <Route
-                        path="transaction/edit/:id"
-                        element={
-                            <Private>
-                                <EditTransaction />
-                            </Private>
-                        }
-                    />
-                </Routes>
-            </AuthProvider>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/transaction" element={<Transaction />} />
+                <Route
+                    path="/createTransaction"
+                    element={<CreateTransaction />}
+                />
+                <Route
+                    path="transaction/edit/:id"
+                    element={<EditTransaction />}
+                />
+            </Routes>
         </BrowserRouter>
     );
 };
