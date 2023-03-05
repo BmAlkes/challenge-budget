@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./sidebar";
+import { Container } from "./style";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";

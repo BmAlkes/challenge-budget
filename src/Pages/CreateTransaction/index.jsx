@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import SideBar from "../../components/SideBar";
 import { Container } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import { useTransaction } from "../../context/TransactionContext";
 import { useAuth } from "../../context/AuthContext";
+import SideBar from "../../components/sidebar";
 
 const CreateTransaction = () => {
     const navigate = useNavigate();

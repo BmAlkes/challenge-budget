@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "./styles";
-import SideBar from "../../components/SideBar";
+import SideBar from "../../components/sidebar";
 import Widgets from "../../components/widgets";
 import Extract from "../../components/Extract";
 import { useTransaction } from "../../context/TransactionContext";
@@ -8,6 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const Home = () => {
     const { user } = useAuth();
+    console.log(user);
     const { _id } = user;
     const { getTransactions, transactions } = useTransaction();
     const [statusCount, setStatusCount] = useState({
